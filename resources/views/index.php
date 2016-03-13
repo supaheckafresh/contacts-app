@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Contacts App</title>
 
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css-deps/bootstrap.min.css">
+    <link rel="stylesheet" href="/css-deps/font-awesome.min.css">
 
 </head>
 <body>
@@ -13,10 +13,10 @@
 
 
 
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/bower_components/lodash/dist/lodash.core.min.js"></script>
-    <script src="/bower_components/angular/angular.min.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/js-deps/jquery.min.js"></script>
+    <script src="/js-deps/lodash.core.min.js"></script>
+    <script src="/js-deps/angular.min.js"></script>
+    <script src="/js-deps/ui-bootstrap.min.js"></script>
 
 </body>
 </html>
