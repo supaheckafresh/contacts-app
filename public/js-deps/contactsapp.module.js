@@ -13,5 +13,7 @@ angular.module('contactsApp')
                 alert('There was an error retrieving Users data');
             });
 
-        vm.test = 'this is some data';
+        vm.addUser = function () {
+
+        }
     });

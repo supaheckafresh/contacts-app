@@ -15,7 +15,14 @@
         <h1>Contacts</h1>
 
         <div data-ng-controller="ContactsController as contacts">
-            <p>{{ contacts.test }}</p>
+
+            <button data-ng-click="contacts.addUser()"></button>
+
+            <ul data-ng-repeat="user in contacts.users">
+                <li>{{ user.name }}</li>
+            </ul>
+
+
         </div>
 
     </div>
