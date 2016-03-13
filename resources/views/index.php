@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Contacts App</title>
 
-    <link rel="stylesheet" href="/css/deps.css">
+    <link rel="stylesheet" href="/css/css-deps.css">
     <link rel="stylesheet" href="/css/styles.css">
 
 </head>
