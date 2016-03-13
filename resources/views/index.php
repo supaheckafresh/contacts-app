@@ -10,13 +10,14 @@
 </head>
 <body>
 
-    <div data-ng-app="contactsApp">
-
-        <h1>Contacts</h1>
+    <div data-ng-app="contactsApp" class="container">
 
         <div data-ng-controller="ContactsController as contacts">
 
-            <button data-ng-click="contacts.addUser()"></button>
+            <div class="row">
+                <h1 class="col-xs-6">Contacts</h1>
+                <button data-ng-click="contacts.addUser()" class="btn btn-info pull-right">Add User</button>
+            </div>
 
             <ul data-ng-repeat="user in contacts.users">
                 <li>{{ user.name }}</li>
