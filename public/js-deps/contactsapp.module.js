@@ -8,12 +8,10 @@ angular.module('contactsApp')
         $http.get('get-users')
             .then(function successCb(res) {
                 vm.users = res.data;
+                console.log(vm.users);
             }, function errorCb() {
                 alert('There was an error retrieving Users data');
             });
 
         vm.test = 'this is some data';
-
-        console.log(vm.test);
-
     });
