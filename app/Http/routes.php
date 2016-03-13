@@ -12,6 +12,5 @@
 */
 
 $app->get('/', function () use ($app) {
-    $users = App\User::all();
-    return view('index', compact($users));
+    return view('index');
 });

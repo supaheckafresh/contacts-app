@@ -17,6 +17,7 @@
     <script src="/js-deps/lodash.core.min.js"></script>
     <script src="/js-deps/angular.min.js"></script>
     <script src="/js-deps/ui-bootstrap.min.js"></script>
+    <script src="/js-deps/app.main.js"></script>
 
 </body>
 </html>
