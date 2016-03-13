@@ -1,0 +1,25 @@
+{
+  "name": "contacts-app",
+  "version": "1.0.0",
+  "description": "Contacts app using Lumen and Angular.js",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supaheckafresh/contacts-app.git"
+  },
+  "author": "Neil Strain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supaheckafresh/contacts-app/issues"
+  },
+  "homepage": "https://github.com/supaheckafresh/contacts-app#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
