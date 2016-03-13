@@ -9,7 +9,16 @@
 
 </head>
 <body>
-    <h1>Contacts</h1>
+
+    <div data-ng-app="contactsApp">
+
+        <h1>Contacts</h1>
+
+        <div data-ng-controller="ContactsController as contacts">
+            <p>{{ contacts.test }}</p>
+        </div>
+
+    </div>
 
 
 
@@ -17,7 +26,7 @@
     <script src="/js-deps/lodash.core.min.js"></script>
     <script src="/js-deps/angular.min.js"></script>
     <script src="/js-deps/ui-bootstrap.min.js"></script>
-    <script src="/js-deps/app.main.js"></script>
+    <script src="/js-deps/contactsapp.module.js"></script>
 
 </body>
 </html>

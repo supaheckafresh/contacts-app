@@ -14,3 +14,5 @@
 $app->get('/', function () use ($app) {
     return view('index');
 });
+
+$app->get('/get-users', 'UsersController@index');
