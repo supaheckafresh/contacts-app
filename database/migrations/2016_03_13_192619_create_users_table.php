@@ -3,6 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+// TODO: Refactor `User` to `Contact`
+
 class CreateUsersTable extends Migration
 {
     /**
