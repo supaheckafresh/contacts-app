@@ -16,3 +16,5 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/get-users', 'UsersController@index');
+
+$app->post('/add-user', 'UsersController@addUser');
