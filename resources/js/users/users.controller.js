@@ -19,7 +19,7 @@
 
             vm.addUser = function () {
 
-            }
+            };
         });
 
 }());

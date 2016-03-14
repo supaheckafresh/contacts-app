@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Contacts App</title>
 
-    <link rel="stylesheet" href="/css/css-deps.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/build/css/css-deps.css">
+    <link rel="stylesheet" href="/build/css/styles.css">
 
 </head>
 <body>
@@ -16,11 +16,15 @@
 
             <div class="row">
                 <h1 class="col-xs-6">Contacts</h1>
-                <button data-ng-click="contacts.addUser()" class="btn btn-info pull-right">Add User</button>
+                <button data-ng-click="contacts.addUser()" class="btn btn-info pull-right add-btn">Add User</button>
             </div>
 
             <ul data-ng-repeat="user in contacts.users">
-                <li>{{ user.name }}</li>
+                <li class="user row">
+                    <h3 class="col-xs-3">{{ user.name }}</h3>
+                    <span class="details col-xs-6">{{ user.email + ' | ' + user.phone }}</span>
+                    <button class="edit-btn">Edit User</button>
+                </li>
             </ul>
 
 
@@ -29,8 +33,8 @@
     </div>
 
 
-    <script src="/js/deps.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/build/js/deps.js"></script>
+    <script src="/build/js/app.js"></script>
 
 </body>
 </html>

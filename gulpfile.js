@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    less = require('gulp-less'),
     autoprefixer = require('gulp-autoprefixer'),
     plumber = require('gulp-plumber'),
     uglify = require('gulp-uglify'),
@@ -7,40 +7,38 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     ngAnnotate = require('gulp-ng-annotate'),
-    watch = require('gulp-watch'),
-    livereload = require('gulp-livereload');
-
+    watch = require('gulp-watch');
 
 gulp.task('js-deps', function () {
     gulp.src([
-            './app/bower_components/jquery/dist/jquery.js',
-            './app/bower_components/lodash/lodash.js',
-            './app/bower_components/angular/angular.js',
-            './app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
+            './bower_components/jquery/dist/jquery.js',
+            './bower_components/lodash/lodash.js',
+            './bower_components/angular/angular.js',
+            './bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
         ])
         .pipe(concat('deps.js'))
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./app/public/resources/js'));
+        .pipe(gulp.dest('./public/build/js'));
 });
 
 
 gulp.task('css-deps', function () {
     gulp.src([
-            "./app/bower_components/bootstrap/dist/css/bootstrap.min.css",
-            "./app/bower_components/font-awesome/css/font-awesome.min.css"
+            "./bower_components/bootstrap/dist/css/bootstrap.min.css",
+            "./bower_components/font-awesome/css/font-awesome.min.css"
         ])
         .pipe(concat('css-deps.css'))
-        .pipe(gulp.dest('./app/public/css'));
+        .pipe(gulp.dest('./public/build/css'));
 
-    gulp.src('./app/bower_components/font-awesome/fonts/*')
-        .pipe(gulp.dest('./app/public/fonts'));
+    gulp.src('./bower_components/font-awesome/fonts/*')
+        .pipe(gulp.dest('./public/build/fonts'));
 });
 
 gulp.task('js', function () {
-    var baseDir = __dirname + '/app/resources/js',
-        outputDir = __dirname + '/app/public/js',
+    var baseDir = __dirname + '/resources/js',
+        outputDir = __dirname + '/public/build/js',
         outputFilename = 'app.js';
 
     gulp.src([
@@ -55,34 +53,27 @@ gulp.task('js', function () {
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(outputDir))
-        .pipe(livereload());
+        .pipe(gulp.dest(outputDir));
 });
 
-gulp.task('sass', function () {
+gulp.task('less', function () {
     gulp.src([
-            './app/resources/styles/styles.sass'
+            './resources/styles/styles.less'
         ])
         .pipe(plumber())
-        .pipe(sass())
+        .pipe(less())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./app/public/css'))
-        .pipe(livereload());
+        .pipe(gulp.dest('./public/build/css'));
 });
 
 gulp.task('watch', function () {
-    livereload.listen({port: 35730});
-    watch(['./app/resources/js/*.js', './app/resources/js/**/*.js'], function () {
+    watch(['./resources/js/*.js', './resources/js/**/*.js'], function () {
         gulp.start('js');
     });
 
-    watch('./app/resources/sass/*.sass', function () {
-        gulp.start('sass');
-    });
-
-    watch(['./app/resources/views/*.html', './app/resources/views/**/*.html'], function () {
-        gulp.start('partials');
+    watch('./resources/less/*.less', function () {
+        gulp.start('less');
     });
 });
 
-gulp.task('default', ['js-deps', 'partials', 'css-deps', 'js', 'sass', 'watch']);
+gulp.task('default', ['js-deps', 'css-deps', 'js', 'less', 'watch']);
