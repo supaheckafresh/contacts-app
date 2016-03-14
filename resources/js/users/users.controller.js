@@ -10,6 +10,13 @@
         .controller('ContactsController', function ($http) {
             var vm = this;
 
+            // Properties to hold data from add new user form.
+            vm.newName = '';
+            vm.newEmail = '';
+            vm.newPhone = '';
+            vm.newPassword = '';
+
+            // Get all current users from the database.
             $http.get('get-users')
                 .then(function successCb(res) {
                     vm.users = res.data;
@@ -18,7 +25,7 @@
                 });
 
             vm.addUser = function () {
-                console.log('called');
+                console.log(vm.newName);
             };
         });
 
