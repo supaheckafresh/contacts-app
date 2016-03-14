@@ -15,18 +15,40 @@
             vm.newEmail = '';
             vm.newPhone = '';
             vm.newPassword = '';
+            vm.newImgUrl = '';
 
             // Get all current users from the database.
-            $http.get('get-users')
-                .then(function successCb(res) {
-                    vm.users = res.data;
-                }, function errorCb() {
-                    alert('There was an error retrieving Users data');
-                });
+            vm.displayUsers = function () {
+                $http.get('get-users')
+                    .then(function successCb(res) {
+                        vm.users = res.data;
+                    }, function errorCb() {
+                        alert('There was an error retrieving Users data');
+                    });
+            };
+            vm.displayUsers();
+
 
             vm.addUser = function () {
-                console.log(vm.newName);
+
+
+                $http.post('add-user', {
+                        name: vm.newName,
+                        email: vm.newEmail,
+                        phone: vm.newPhone,
+                        password: vm.newPassword,
+                        img_url: vm.newImgUrl
+                    })
+                    .then(
+                        function successCb(res) {
+                            console.log('success', res);
+                            vm.displayUsers();
+                        },
+                        function errorCb(res) {
+                            console.log('error', res);
+                        });
             };
+
         });
 
 }());
