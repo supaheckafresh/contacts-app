@@ -7,7 +7,9 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     ngAnnotate = require('gulp-ng-annotate'),
-    watch = require('gulp-watch');
+    watch = require('gulp-watch'),
+    livereload = require('gulp-livereload'),
+    serve = require('gulp-serve');
 
 gulp.task('js-deps', function () {
     gulp.src([
@@ -53,7 +55,8 @@ gulp.task('js', function () {
         .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(outputDir));
+        .pipe(gulp.dest(outputDir))
+        .pipe(livereload());
 });
 
 gulp.task('less', function () {
@@ -63,10 +66,14 @@ gulp.task('less', function () {
         .pipe(plumber())
         .pipe(less())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('./public/build/css'));
+        .pipe(gulp.dest('./public/build/css'))
+        .pipe(livereload());
 });
 
+gulp.task('serve', serve('.'));
+
 gulp.task('watch', function () {
+    livereload.listen({port: 35730});
     watch(['./resources/js/*.js', './resources/js/**/*.js'], function () {
         gulp.start('js');
     });
@@ -76,4 +83,4 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('default', ['js-deps', 'css-deps', 'js', 'less', 'watch']);
+gulp.task('default', ['js-deps', 'css-deps', 'js', 'less', 'watch', 'serve']);

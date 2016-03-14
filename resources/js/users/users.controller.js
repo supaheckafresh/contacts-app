@@ -18,7 +18,7 @@
                 });
 
             vm.addUser = function () {
-
+                console.log('called');
             };
         });
 
