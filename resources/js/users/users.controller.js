@@ -22,6 +22,8 @@
                 $http.get('get-users')
                     .then(function successCb(res) {
                         vm.users = res.data;
+
+
                     }, function errorCb() {
                         alert('There was an error retrieving Users data');
                     });
@@ -37,7 +39,8 @@
                         email: vm.newEmail,
                         phone: vm.newPhone,
                         password: vm.newPassword,
-                        img_url: vm.newImgUrl
+                        img_url: vm.newImgUrl,
+                        intrash: false
                     })
                     .then(
                         function successCb(res) {
